@@ -1,29 +1,35 @@
 package org.example;
 
 public class BankAccount {
-    private String AccountNumber;
-    private double balance;
+    private int accountNumber = 9000;
+    private double balance = 0.0;
     private String customerName;
     private String customerEmail;
     private String customerPhoneNumber;
+    private static int counter = 0;
+
 
     public BankAccount() {
+        this.accountNumber += counter;
+        this.counter++;
     }
 
-    public BankAccount(String accountNumber, double balance, String customerName, String customerEmail, String customerPhoneNumber) {
-        AccountNumber = accountNumber;
+    public BankAccount(double balance, String customerName, String customerEmail, String customerPhoneNumber) {
+        this.accountNumber += this.counter;
         this.balance = balance;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.customerPhoneNumber = customerPhoneNumber;
+        this.counter++;
+
     }
 
-    public String getAccountNumber() {
-        return AccountNumber;
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        AccountNumber = accountNumber;
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public double getBalance() {
@@ -58,18 +64,16 @@ public class BankAccount {
         this.customerPhoneNumber = customerPhoneNumber;
     }
 
-    public double deposit(double moneyInput) {
+    public double deposit(final double moneyInput) {
         double newBalance = this.balance + moneyInput;
         return newBalance;
     }
 
-    public double withdraw(double moneyWithdraw) {
+    public double withdraw(final double moneyWithdraw) {
         if(moneyWithdraw > this.balance) {
             System.out.println("Balance is insufficient!");
         }
         double newBalance = this.balance - moneyWithdraw;
         return newBalance;
     }
-
-
 }
