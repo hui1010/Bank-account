@@ -1,26 +1,24 @@
 package org.example;
 
+import static org.example.BankAccountSequencer.nextAccountNumber;
+
 public class BankAccount {
-    private int accountNumber = 9000;
+    private int accountNumber;
     private double balance = 0.0;
     private String customerName;
     private String customerEmail;
     private String customerPhoneNumber;
-    private static int counter = 0;
 
 
     public BankAccount() {
-        this.accountNumber += counter;
-        this.counter++;
     }
 
-    public BankAccount(double balance, String customerName, String customerEmail, String customerPhoneNumber) {
-        this.accountNumber += this.counter;
+    public BankAccount(int accountNumber, double balance, String customerName, String customerEmail, String customerPhoneNumber) {
+        this.accountNumber = accountNumber;
         this.balance = balance;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.customerPhoneNumber = customerPhoneNumber;
-        this.counter++;
 
     }
 

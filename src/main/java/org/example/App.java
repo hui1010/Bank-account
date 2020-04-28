@@ -3,17 +3,18 @@ package org.example;
 
 import java.util.Scanner;
 
+import static org.example.BankAccountSequencer.nextAccountNumber;
+
 public class App
 {
     public static void main( String[] args ) {
 
         final double newBalance = 0.0;
 
-        BankAccount account = new BankAccount(newBalance, "Huiyi Skårner", "My@Email.com", "0767824509");
+        BankAccount account = new BankAccount(nextAccountNumber(), newBalance, "Huiyi Skårner", "My@Email.com", "0767824509");
         System.out.println(account.getAccountNumber());
 
-        BankAccount account2 = new BankAccount();
-        System.out.println(account2.getAccountNumber());
+        
 
         /*Scanner scanner = new Scanner(System.in);
 
